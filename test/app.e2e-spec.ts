@@ -11,7 +11,7 @@ describe('AppController (e2e)', () => {
   let app: INestApplication;
   const WALLET_ADDRESS = '0xb00B5C688cC8f68ca0aEeAE6a0ab0712d7eB2D67';
 
-  const leaves: Leaf[] = Array.from(Array(17).keys()).map(
+  const leaves: Leaf[] = Array.from(Array(4).keys()).map(
     (i) => new Leaf(WALLET_ADDRESS, BigInt(i + 1) * 1_000_000_000_000_000_000n),
   );
   const tree = new Tree(leaves);

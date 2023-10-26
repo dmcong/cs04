@@ -8,7 +8,6 @@ export class MerkleController {
 
   @Post()
   create(@Body() createMerkleDto: CreateMerkleDto) {
-    console.log('createMerkleDto', createMerkleDto);
     return this.merkleService.create(createMerkleDto);
   }
 
