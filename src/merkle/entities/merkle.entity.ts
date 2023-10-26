@@ -12,4 +12,4 @@ export class Merkle {
   leafs: string[];
 }
 
-export const CatSchema = SchemaFactory.createForClass(Merkle);
+export const MerkleSchema = SchemaFactory.createForClass(Merkle);
