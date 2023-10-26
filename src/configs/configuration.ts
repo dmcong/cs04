@@ -1,3 +1,3 @@
 export default () => ({
-  database: process.env.MONGO_URL,
+  mongoUri: process.env.MONGO_URI,
 });

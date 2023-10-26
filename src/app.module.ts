@@ -11,12 +11,12 @@ import configuration from './configs/configuration';
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true, load: [configuration] }),
-    ThrottlerModule.forRoot([{ ttl: 30000, limit: 5 }]),
+    ThrottlerModule.forRoot([{ ttl: 60000, limit: 10 }]),
     MongooseModule.forRootAsync({
       imports: [ConfigModule],
       useFactory: async (configService: ConfigService) => {
         return {
-          uri: configService.get('database'),
+          uri: configService.get('mongoUri'),
         };
       },
       inject: [ConfigService],
