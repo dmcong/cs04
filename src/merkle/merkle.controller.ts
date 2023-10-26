@@ -18,6 +18,6 @@ export class MerkleController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.merkleService.findOne(+id);
+    return this.merkleService.findOne(id);
   }
 }

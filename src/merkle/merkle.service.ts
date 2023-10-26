@@ -7,17 +7,17 @@ import { Merkle } from './entities/merkle.entity';
 
 @Injectable()
 export class MerkleService {
-  constructor(@InjectModel(Merkle.name) private catModel: Model<Merkle>) {}
+  constructor(@InjectModel(Merkle.name) private merkleModel: Model<Merkle>) {}
   create(createMerkleDto: CreateMerkleDto) {
-    const createdCat = new this.catModel(createMerkleDto);
+    const createdCat = new this.merkleModel(createMerkleDto);
     return createdCat.save();
   }
 
   findAll() {
-    return `This action returns all merkle`;
+    return this.merkleModel.find().exec();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} merkle`;
+  findOne(root: string) {
+    return this.merkleModel.findOne({ root }).exec();
   }
 }
