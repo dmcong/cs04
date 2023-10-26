@@ -8,8 +8,11 @@ export class Merkle {
   @Prop()
   root: string;
 
-  @Prop([String])
-  leafs: string[];
+  @Prop({
+    type: [{ address: { type: String }, amount: { type: String } }],
+    _id: false,
+  })
+  leaves: { address: string; amount: string }[];
 }
 
 export const MerkleSchema = SchemaFactory.createForClass(Merkle);

@@ -8,6 +8,7 @@ export class MerkleController {
 
   @Post()
   create(@Body() createMerkleDto: CreateMerkleDto) {
+    console.log('createMerkleDto', createMerkleDto);
     return this.merkleService.create(createMerkleDto);
   }
 
@@ -16,8 +17,8 @@ export class MerkleController {
     return this.merkleService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.merkleService.findOne(id);
+  @Get(':root')
+  findOne(@Param('root') root: string) {
+    return this.merkleService.findOne(root);
   }
 }

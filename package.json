@@ -27,6 +27,7 @@
     "@nestjs/mongoose": "^10.0.1",
     "@nestjs/platform-express": "^10.0.0",
     "@nestjs/throttler": "^5.0.0",
+    "cs01-congdm": "^1.0.3",
     "mongoose": "^7.6.3",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.8.1"

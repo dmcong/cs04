@@ -1,4 +1,4 @@
 export class CreateMerkleDto {
   root: string;
-  leafs: string[];
+  leaves: { address: string; amount: string }[];
 }
