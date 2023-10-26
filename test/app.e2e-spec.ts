@@ -16,9 +16,19 @@ describe('AppController (e2e)', () => {
   });
 
   it('/ (GET)', () => {
+    return request(app.getHttpServer()).get('/health').expect(200).expect('Ok');
+  });
+
+  it('create Merkle', () => {
+    // TODO create merkle
+  });
+
+  it('get Merkle', () => {
     return request(app.getHttpServer())
-      .get('/')
-      .expect(200)
-      .expect('Hello World!');
+      .get('/merkle/root')
+      .then((result) => {
+        expect(result.statusCode).toEqual(200);
+        expect(result.body.root).toEqual('root');
+      });
   });
 });
