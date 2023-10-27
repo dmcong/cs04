@@ -6,6 +6,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { MerkleModule } from './merkle/merkle.module';
 import configuration from './configs/configuration';
 
 @Module({
@@ -21,6 +22,7 @@ import configuration from './configs/configuration';
       },
       inject: [ConfigService],
     }),
+    MerkleModule,
   ],
   controllers: [AppController],
   providers: [
