@@ -1,1 +1,4 @@
-export class CreateMerkleDto {}
+export class CreateMerkleDto {
+  root: string;
+  leaves: { address: string; amount: string }[];
+}

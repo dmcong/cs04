@@ -1,3 +1,4 @@
+import { Tree, Leaf } from 'cs01-congdm';
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
@@ -10,6 +11,14 @@ export class MerkleService {
   constructor(@InjectModel(Merkle.name) private merkleModel: Model<Merkle>) {}
   async create(createMerkleDto: CreateMerkleDto) {
     // TODO: create
+    const tree = new Tree(
+      createMerkleDto.leaves.map((leaf) => {
+        return new Leaf(leaf.address, BigInt(leaf.amount));
+      }),
+    );
+    if (tree.root.toString() !== createMerkleDto.root) {
+      throw new Error('Invalid root');
+    }
     const createdMerkle = new this.merkleModel(createMerkleDto);
     return createdMerkle.save();
   }
